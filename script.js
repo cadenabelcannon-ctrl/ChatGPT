@@ -1,4 +1,5 @@
 const countries = Array.from(document.querySelectorAll(".country"));
+const resetButton = document.querySelector(".reset");
 const palette = [
   "#4aa3ff",
   "#7b66ff",
@@ -22,6 +23,13 @@ const assignColor = (country) => {
   return colorAssignments.get(name);
 };
 
+const clearSelection = () => {
+  countries.forEach((country) => {
+    country.classList.remove("active");
+    country.style.removeProperty("--country-color");
+  });
+};
+
 countries.forEach((country) => {
   country.addEventListener("click", () => {
     const isActive = country.classList.contains("active");
@@ -34,3 +42,5 @@ countries.forEach((country) => {
     }
   });
 });
+
+resetButton?.addEventListener("click", clearSelection);

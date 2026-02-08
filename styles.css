@@ -1,0 +1,126 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1c1f26, #0f1116 55%);
+  color: #f4f6fb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem) 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #8b93a7;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  max-width: 40rem;
+  color: #b8bfd6;
+  line-height: 1.6;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: #cfd5e6;
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: #2f3648;
+  box-shadow: 0 0 12px rgba(94, 181, 255, 0.8);
+  border: 1px solid rgba(140, 210, 255, 0.9);
+}
+
+.map-panel {
+  background: linear-gradient(160deg, rgba(31, 36, 48, 0.95), rgba(14, 16, 22, 0.9));
+  border-radius: 28px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(95, 108, 141, 0.3);
+}
+
+#world-map {
+  width: 100%;
+  height: min(70vh, 760px);
+  display: block;
+}
+
+.ocean {
+  fill: #1b1f2a;
+  stroke: rgba(92, 104, 136, 0.5);
+  stroke-width: 1px;
+}
+
+.country {
+  fill: #2c303c;
+  stroke: #515a72;
+  stroke-width: 1px;
+  transition: fill 0.3s ease, filter 0.3s ease, stroke 0.3s ease;
+  cursor: pointer;
+}
+
+.country:hover {
+  fill: #39405a;
+}
+
+.country.active {
+  fill: var(--country-color, #4aa3ff);
+  stroke: #b7e3ff;
+  stroke-width: 2px;
+  filter: url(#glow);
+}
+
+.label {
+  font-size: 11px;
+  fill: #dfe5f5;
+  text-anchor: middle;
+  pointer-events: none;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 900px) {
+  #world-map {
+    height: 65vh;
+  }
+
+  .label {
+    font-size: 9px;
+  }
+}

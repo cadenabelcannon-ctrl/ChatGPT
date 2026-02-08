@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive World Map</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Interactive Atlas</p>
+          <h1>World Map Explorer</h1>
+          <p class="subtitle">
+            Click a country to illuminate it with a glow. Labels show each nation for quick reference.
+          </p>
+        </div>
+        <div class="legend">
+          <span class="swatch"></span>
+          <span>Selected country</span>
+        </div>
+      </header>
+      <section class="map-panel">
+        <svg
+          id="world-map"
+          viewBox="0 0 1000 520"
+          role="img"
+          aria-label="Stylized world map with labeled countries"
+        >
+          <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <rect class="ocean" x="20" y="20" width="960" height="480" rx="26" />
+          <g class="countries">
+            <rect class="country" data-name="Canada" x="90" y="70" width="200" height="70" rx="8" />
+            <rect class="country" data-name="United States" x="110" y="150" width="200" height="75" rx="8" />
+            <rect class="country" data-name="Mexico" x="145" y="235" width="150" height="55" rx="8" />
+            <rect class="country" data-name="Peru" x="260" y="320" width="80" height="65" rx="8" />
+            <rect class="country" data-name="Brazil" x="310" y="285" width="170" height="95" rx="12" />
+            <rect class="country" data-name="Argentina" x="340" y="395" width="130" height="80" rx="12" />
+
+            <rect class="country" data-name="United Kingdom" x="500" y="125" width="45" height="35" rx="6" />
+            <rect class="country" data-name="France" x="545" y="155" width="70" height="50" rx="8" />
+            <rect class="country" data-name="Germany" x="625" y="140" width="55" height="50" rx="8" />
+            <rect class="country" data-name="Spain" x="535" y="215" width="70" height="45" rx="8" />
+            <rect class="country" data-name="Italy" x="615" y="210" width="55" height="60" rx="8" />
+
+            <rect class="country" data-name="Morocco" x="520" y="265" width="70" height="45" rx="8" />
+            <rect class="country" data-name="Egypt" x="645" y="285" width="65" height="50" rx="8" />
+            <rect class="country" data-name="Nigeria" x="585" y="325" width="80" height="55" rx="8" />
+            <rect class="country" data-name="Kenya" x="650" y="350" width="65" height="60" rx="8" />
+            <rect class="country" data-name="South Africa" x="620" y="425" width="95" height="65" rx="10" />
+
+            <rect class="country" data-name="Russia" x="690" y="65" width="230" height="75" rx="10" />
+            <rect class="country" data-name="China" x="735" y="155" width="150" height="80" rx="10" />
+            <rect class="country" data-name="Japan" x="900" y="175" width="45" height="55" rx="10" />
+            <rect class="country" data-name="India" x="710" y="245" width="100" height="80" rx="12" />
+            <rect class="country" data-name="Saudi Arabia" x="735" y="310" width="90" height="65" rx="10" />
+
+            <rect class="country" data-name="Australia" x="820" y="380" width="150" height="85" rx="14" />
+            <rect class="country" data-name="New Zealand" x="970" y="425" width="25" height="55" rx="10" />
+          </g>
+          <g class="labels">
+            <text class="label" x="190" y="110">Canada</text>
+            <text class="label" x="210" y="190">United States</text>
+            <text class="label" x="220" y="268">Mexico</text>
+            <text class="label" x="300" y="360">Peru</text>
+            <text class="label" x="395" y="335">Brazil</text>
+            <text class="label" x="405" y="440">Argentina</text>
+
+            <text class="label" x="523" y="146">UK</text>
+            <text class="label" x="580" y="185">France</text>
+            <text class="label" x="652" y="170">Germany</text>
+            <text class="label" x="570" y="244">Spain</text>
+            <text class="label" x="642" y="246">Italy</text>
+
+            <text class="label" x="555" y="292">Morocco</text>
+            <text class="label" x="678" y="316">Egypt</text>
+            <text class="label" x="625" y="357">Nigeria</text>
+            <text class="label" x="682" y="384">Kenya</text>
+            <text class="label" x="668" y="463">South Africa</text>
+
+            <text class="label" x="800" y="110">Russia</text>
+            <text class="label" x="805" y="200">China</text>
+            <text class="label" x="923" y="210">Japan</text>
+            <text class="label" x="760" y="287">India</text>
+            <text class="label" x="780" y="345">Saudi Arabia</text>
+
+            <text class="label" x="895" y="425">Australia</text>
+            <text class="label" x="982" y="457">NZ</text>
+          </g>
+        </svg>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
